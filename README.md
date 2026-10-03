@@ -23,6 +23,11 @@ Details and GitHub handles in [CONTRIBUTORS.md](CONTRIBUTORS.md). Implementation
 ## Problem and motivation
 In an emergency the first responders cannot see blood type, allergies, chronic conditions or an emergency contact because the phone is locked; medical certificates are scattered on paper and lost when changing hospitals. MediFirstCard keeps a patient-held, encrypted copy and shows a chosen subset on the lock screen, with one-tap calling to the people who matter.
 
+> ภาษาไทย:
+ในกรณีฉุกเฉิน ผู้ช่วยเหลือหรือหน่วยกู้ชีพไม่สามารถดูข้อมูลสำคัญทางการแพทย์ของผู้ป่วยได้ เช่น กรุ๊ปเลือด ประวัติการแพ้ยา โรคประจำตัว หรือผู้ติดต่อกรณีฉุกเฉิน เนื่องจากโทรศัพท์ของผู้ป่วยถูกล็อกอยู่ นอกจากนี้ ใบรับรองแพทย์และเอกสารข้อมูลทางการแพทย์ต่าง ๆ มักถูกจัดเก็บแยกกันในรูปแบบกระดาษและอาจสูญหายเมื่อผู้ป่วยเปลี่ยนโรงพยาบาล
+MediFirstCard จึงถูกพัฒนาขึ้นเพื่อให้ผู้ป่วยสามารถเก็บสำเนาข้อมูลทางการแพทย์ที่เข้ารหัสไว้กับตนเอง และเลือกแสดงข้อมูลสำคัญบางส่วนบนหน้าจอล็อกของโทรศัพท์ได้ พร้อมฟังก์ชัน โทรหาผู้ติดต่อฉุกเฉินที่สำคัญได้ในคลิกเดียว เพื่อช่วยให้ผู้ช่วยเหลือเข้าถึงข้อมูลที่จำเป็นได้อย่างรวดเร็วในสถานการณ์ฉุกเฉิน
+
+
 ## Main features
 Everything below runs today on a real Android phone. Verified 2026-09-04 both against the laptop API (embedded database, mock extractor) and against the full cloud stack: Supabase PostgreSQL + Storage, Google Gemini 3.5 Flash-Lite with SCB 10X Typhoon OCR (screenshots below).
 
