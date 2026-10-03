@@ -31,6 +31,17 @@ MediFirstCard จึงถูกพัฒนาขึ้นเพื่อให
 ## Main features
 Everything below runs today on a real Android phone. Verified 2026-09-04 both against the laptop API (embedded database, mock extractor) and against the full cloud stack: Supabase PostgreSQL + Storage, Google Gemini 3.5 Flash-Lite with SCB 10X Typhoon OCR (screenshots below).
 
+> ภาษาไทย:
+> 
+บัตรฉุกเฉิน (Emergency Card)
+แสดงข้อมูล ชื่อ กรุ๊ปเลือด (โดยเน้นกรณี Rh-negative) ประวัติการแพ้ยา (แสดงเป็นสีแดง) โรคประจำตัว ยาที่ใช้อยู่ และผู้ติดต่อฉุกเฉิน โดยจัดเรียงข้อมูลตามลำดับความสำคัญสำหรับ “60 วินาทีแรกของเหตุฉุกเฉิน”
+มีปุ่ม โทร 1669 และปุ่ม โทร (Call) สำหรับผู้ติดต่อแต่ละราย ซึ่งเมื่อกดจะเปิดหน้าสำหรับโทรออกพร้อมหมายเลขโทรศัพท์นั้น
+
+บัตรบนหน้าจอล็อก (Lock-screen Card)
+แสดงบัตรฉุกเฉินเดียวกันเป็น การแจ้งเตือนแบบถาวร (Permanent Notification) บนช่องทางที่สามารถมองเห็นได้จากภายนอก สามารถอ่านข้อมูลได้โดยไม่ต้องปลดล็อกโทรศัพท์ และมีปุ่ม โทร 1669
+เมื่อผู้ใช้ปัดการแจ้งเตือนออก ระบบจะนำกลับมาแสดงอีกครั้งทันที รวมถึงแสดงใหม่หลังจาก รีสตาร์ตเครื่องหรืออัปเดตแอป โดยใช้โมดูล Android ขนาดเล็กสำหรับจัดการฟังก์ชันนี้ (apps/mobile/modules/lock-card) และจะอัปเดตข้อมูลทุกครั้งที่โปรไฟล์มีการเปลี่ยนแปลง
+
+
 - **Emergency card** — name, blood group (Rh-negative flagged), allergies in red, conditions, medications and emergency contacts, in "first 60 seconds" order. **Call 1669** button and a **Call** button on every contact (opens the dialer with the number).
 - **Lock-screen card** — the same card pinned as a permanent notification on a public-visibility channel, readable without unlocking, with a **Call 1669** action. It is re-posted the moment it is swiped away and again after a reboot or app update (a small native Android module, `apps/mobile/modules/lock-card`), and refreshed whenever the profile changes. The user chooses which fields are exposed and is warned about exposure.
 - **Emergency profile** — identity, date of birth (system date picker), sex, blood group, medical flags (blood thinners, insulin, pacemaker, dialysis, pregnancy), insurance scheme, notes; separate editors for **allergies, conditions, medications and emergency contacts** (Thai phone validation, informed-consent flag, call priority). A stale "no known drug allergies" flag is cleared by the server as soon as an allergy is listed, so the card can never hide a real allergy.
