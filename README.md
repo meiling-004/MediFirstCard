@@ -119,6 +119,14 @@ npm install
 cp apps/api/.env.example apps/api/.env   # set FIELD_ENC_KEY and JWT_SECRET (instructions in the file)
 ```
 
+> ภาษาไทย:
+สิ่งที่ต้องเตรียมล่วงหน้า (Prerequisites):
+> - **Node 24 (.nvmrc)
+> - **JDK: เวอร์ชัน 17 หรือ 21
+> - **Android Studio: พร้อมติดตั้ง SDK Platform 36
+> - **การตั้งค่า Environment Variable: กำหนดค่า ANDROID_HOME ให้เรียบร้อย
+> - **หมายเหตุ: คู่มือนี้เน้นระบบปฏิบัติการ Windows เป็นหลัก แต่จะมีคำสั่งที่เทียบเท่ากันสำหรับ macOS และ Linux ให้ในแต่ละขั้นตอน
+
 ## Install the app on a phone (no build tools needed)
 Download the signed APK from the latest [GitHub release](https://github.com/enchantedglycerin/MediFirstCard/releases) and install it (`adb install -r MediFirstCard-v1.0.11.apk`, or open the file on the phone and allow the install). Then open **More → Developer → Server URL** and enter the address of the API (the laptop's Wi-Fi IPv4 for a classroom demo, e.g. `http://192.168.1.20:3000`, or the Render URL once deployed).
 
