@@ -186,5 +186,17 @@ Free Tier Server: เซิร์ฟเวอร์ที่ใช้ Free Tier 
 ## Future development directions
 Verifying the Gemini + Typhoon extraction and Supabase Storage adapters against the real free tiers (wired and tested offline; no keys provisioned yet), Render deploy, iOS WidgetKit, edge-detecting scanner, vaccination module, offline cache, push notifications, FHIR export to hospitals, NFC card.
 
+> ภาษาไทย:
+ตรวจสอบการทำงานของ Gemini + Typhoon และ Supabase Storage กับ Free Tier จริง (โดยขณะนี้ระบบเชื่อมต่อและทดสอบในโหมด Offline แล้ว แต่ยังไม่ได้ใส่ API Key จริง)
+Deploy ระบบด้วย Render เพื่อให้ระบบสามารถทำงานบน Cloud ได้จริง
+พัฒนา iOS WidgetKit เพื่อรองรับ Widget บนหน้าจอของอุปกรณ์ iOS
+พัฒนาเครื่องสแกนที่สามารถตรวจจับขอบเอกสาร (Edge Detection) เพื่อช่วยให้การถ่ายหรือสแกนเอกสารมีความแม่นยำมากขึ้น
+เพิ่มโมดูลวัคซีน (Vaccination Module) สำหรับจัดเก็บและจัดการข้อมูลเกี่ยวกับการฉีดวัคซีน
+เพิ่มระบบ Offline Cache เพื่อให้สามารถเข้าถึงข้อมูลบางส่วนได้แม้ไม่มีอินเทอร์เน็ต
+เพิ่ม Push Notifications เพื่อส่งการแจ้งเตือนให้ผู้ใช้แบบเรียลไทม์
+เพิ่มการส่งออกข้อมูลในรูปแบบ FHIR (FHIR Export) เพื่อให้สามารถนำข้อมูลไปแลกเปลี่ยนหรือเชื่อมต่อกับระบบสารสนเทศของโรงพยาบาลได้
+รองรับ NFC Card เพื่อใช้ NFC ในการระบุตัวตนหรือเข้าถึงข้อมูลที่เกี่ยวข้องกับผู้ใช้ได้สะดวกขึ้น
+
+
 ## A statement on responsible use
 MediFirstCard is a student educational prototype, not a medical device, and must not be used for diagnosis or treatment. Health data is sensitive personal data under the Thai PDPA: the app asks for explicit consent, states the purposes, names the AI providers, and lets the user withdraw consent and delete all data. Anything shown on the lock screen is readable by anyone holding the phone, so the user chooses each field and is warned before enabling it. Medical staff must confirm blood group, allergies and medications by standard procedures.
