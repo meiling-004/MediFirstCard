@@ -30,18 +30,6 @@ MediFirstCard จึงถูกพัฒนาขึ้นเพื่อให
 
 ## Main features
 Everything below runs today on a real Android phone. Verified 2026-09-04 both against the laptop API (embedded database, mock extractor) and against the full cloud stack: Supabase PostgreSQL + Storage, Google Gemini 3.5 Flash-Lite with SCB 10X Typhoon OCR (screenshots below).
-
-> ภาษาไทย:
-> 
-บัตรฉุกเฉิน (Emergency Card)
-แสดงข้อมูล ชื่อ กรุ๊ปเลือด (โดยเน้นกรณี Rh-negative) ประวัติการแพ้ยา (แสดงเป็นสีแดง) โรคประจำตัว ยาที่ใช้อยู่ และผู้ติดต่อฉุกเฉิน โดยจัดเรียงข้อมูลตามลำดับความสำคัญสำหรับ “60 วินาทีแรกของเหตุฉุกเฉิน”
-มีปุ่ม โทร 1669 และปุ่ม โทร (Call) สำหรับผู้ติดต่อแต่ละราย ซึ่งเมื่อกดจะเปิดหน้าสำหรับโทรออกพร้อมหมายเลขโทรศัพท์นั้น
-
-บัตรบนหน้าจอล็อก (Lock-screen Card)
-แสดงบัตรฉุกเฉินเดียวกันเป็น การแจ้งเตือนแบบถาวร (Permanent Notification) บนช่องทางที่สามารถมองเห็นได้จากภายนอก สามารถอ่านข้อมูลได้โดยไม่ต้องปลดล็อกโทรศัพท์ และมีปุ่ม โทร 1669
-เมื่อผู้ใช้ปัดการแจ้งเตือนออก ระบบจะนำกลับมาแสดงอีกครั้งทันที รวมถึงแสดงใหม่หลังจาก รีสตาร์ตเครื่องหรืออัปเดตแอป โดยใช้โมดูล Android ขนาดเล็กสำหรับจัดการฟังก์ชันนี้ (apps/mobile/modules/lock-card) และจะอัปเดตข้อมูลทุกครั้งที่โปรไฟล์มีการเปลี่ยนแปลง
-
-
 - **Emergency card** — name, blood group (Rh-negative flagged), allergies in red, conditions, medications and emergency contacts, in "first 60 seconds" order. **Call 1669** button and a **Call** button on every contact (opens the dialer with the number).
 - **Lock-screen card** — the same card pinned as a permanent notification on a public-visibility channel, readable without unlocking, with a **Call 1669** action. It is re-posted the moment it is swiped away and again after a reboot or app update (a small native Android module, `apps/mobile/modules/lock-card`), and refreshed whenever the profile changes. The user chooses which fields are exposed and is warned about exposure.
 - **Emergency profile** — identity, date of birth (system date picker), sex, blood group, medical flags (blood thinners, insulin, pacemaker, dialysis, pregnancy), insurance scheme, notes; separate editors for **allergies, conditions, medications and emergency contacts** (Thai phone validation, informed-consent flag, call priority). A stale "no known drug allergies" flag is cleared by the server as soon as an allergy is listed, so the card can never hide a real allergy.
@@ -53,6 +41,19 @@ Everything below runs today on a real Android phone. Verified 2026-09-04 both ag
 - **Security** — JWT access/refresh with rotation and reuse detection (single-flight refresh on the client), AES-256-GCM encryption of every health-content column, optional app PIN with fingerprint/face unlock, route guard.
 - **Bilingual UI** — Thai and English, switchable in More; Buddhist-era dates in Thai.
 
+> ภาษาไทย:
+ทุกฟังก์ชันด้านล่างนี้ สามารถรันบนโทรศัพท์ Android เครื่องจริงได้แล้วในปัจจุบัน ผ่านการทดสอบและยืนยันแล้วเมื่อวันที่ 4 ก.ย. 2026 ทั้งการทดสอบกับ API บนโน้ตบุ๊ก (ฐานข้อมูลแบบสอดแทรก และระบบสกัดข้อมูลจำลอง) และระบบบนคลาวด์เต็มรูปแบบ: Supabase PostgreSQL + Storage รวมถึง Google Gemini 3.5 Flash-Lite ร่วมกับ SCB 10X Typhoon OCR (ดูภาพหน้าจอประกอบด้านล่าง)
+- **บัตรข้อมูลฉุกเฉิน (Emergency card): แสดงชื่อ, กรุ๊ปเลือด (ไฮไลต์หากเป็น Rh-Negative), ประวัติการแพ้ยา/อาหาร (ตัวอักษรสีแดง), โรคประจำตัว, ยาที่ใช้ และผู้ติดต่อฉุกเฉิน โดยเรียงลำดับความสำคัญตามข้อมูลที่จำเป็นใน "60 วินาทีแรก" มีปุ่มกดโทรออก 1669 และปุ่มโทรออกสำหรับทุกเบอร์ผู้ติดต่อ (เปิดแอปโทรศัพท์พร้อมใส่เบอร์ให้อัตโนมัติ)
+- **บัตรบนหน้าจอล็อก (Lock-screen card): นำบัตรฉุกเฉินไปปักหมุดไว้เป็นแจ้งเตือนถาวรในช่องทางที่มองเห็นได้สาธารณะ เพื่อให้ อ่านข้อมูลได้ทันทีโดยไม่ต้องปลดล็อกเครื่อง พร้อมปุ่มกดโทร 1669 หากผู้ใช้ปัดการแจ้งเตือนทิ้ง หรือเมื่อเปิดเครื่องใหม่/อัปเดตแอป ระบบจะสร้างแจ้งเตือนขึ้นมาใหม่ทันที (ทำงานผ่านโมดูล Native Android ขนาดเล็กที่ apps/mobile/modules/lock-card) และจะอัปเดตข้อมูลอัตโนมัติทุกครั้งที่โปรไฟล์เปลี่ยน ทั้งนี้ ผู้ใช้สามารถเลือกได้ว่าต้องการเปิดเผยข้อมูลใดบ้าง โดยระบบจะมีเตือนเกี่ยวกับความเป็นส่วนตัวก่อนเสมอ
+- **โปรไฟล์ข้อมูลฉุกเฉิน (Emergency profile): จัดเก็บข้อมูลตัวตน, วันเกิด (มีตัวเลือกวันเดือนปี), เพศ, กรุ๊ปเลือด, เครื่องหมายเตือนทางการแพทย์ (เช่น ยาสลายลิ่มเลือด, ผู้ใช้อินซูลิน, เครื่องกระตุ้นหัวใจ, การฟอกไต, การตั้งครรภ์), สิทธิการรักษา และโน้ตเพิ่มเติม มีระบบแก้ไขแยกต่างหากสำหรับประวัติการแพ้, โรคประจำตัว, ยาที่ใช้ และผู้ติดต่อฉุกเฉิน (มีการตรวจสอบความถูกต้องของเบอร์โทรไทย, ธงยินยอมรับทราบข้อมูล, การจัดลำดับความสำคัญในการโทร) นอกจากนี้ หากเคยตั้งค่าว่า "ไม่มีประวัติแพ้ยา" แล้วต่อมามีการเพิ่มรายการแพ้ยาเข้าไป ระบบฝั่งเซิร์ฟเวอร์จะยกเลิกธงดังกล่าวทันที เพื่อป้องกันไม่ให้บัตรซ่อนข้อมูลการแพ้ยาจริง
+- **หน้าแสดงผลสำหรับกู้ชีพ (Rescuer surfaces): สร้าง QR Code และลิงก์สาธารณะ (/e/:token) ในรูปแบบหน้าเว็บ HTML ที่ทำงานได้โดยไม่ต้องพึ่งพาไลบรารีอื่น (รองรับการกดเพื่อโทรออก) พร้อมฟังก์ชัน "ตัวอย่างมุมมองกู้ชีพ" ภายในแอป
+- **คลังจัดเก็บเอกสาร (Document archive): สแกนจากกล้องหรือคลังภาพ $\rightarrow$ ปรับขนาด/แปลงเป็น JPEG $\rightarrow$ ตรวจสอบและตัดไฟล์ซ้ำด้วย SHA-256 $\rightarrow$ อัปโหลด $\rightarrow$ สกัดข้อมูลด้วย AI $\rightarrow$ ตรวจสอบช่องข้อมูลสีแดง (ข้อมูลที่สกัดมาสามารถแก้ไขได้ทั้งหมด พร้อมแสดงระดับความมั่นใจ หากความมั่นใจต่ำจะไฮไลต์ไว้) $\rightarrow$ บันทึกพร้อมระบุประเภทเอกสาร, สถานพยาบาล, แพทย์ผู้รักษา, เลขใบอนุญาต, วันที่ออกเอกสาร และคำนวณวันหมดอายุให้อัตโนมัติ มีหน้าแสดงรายละเอียดพร้อมรูปต้นฉบับ และสามารถลบเอกสารได้
+- **การแชร์ข้อมูลกับแพทย์ (Share with a clinician): สร้างลิงก์ชั่วคราว (กำหนดอายุได้ 1 ชม. / 24 ชม. / 3 วัน) สำหรับเอกสารที่เลือก สามารถตั้งรหัสผ่าน 4 หลักเพิ่มเติมได้ (หากใส่รหัสผิด 5 ครั้ง ลิงก์จะถูกยกเลิกทันที) มีระบบนับจำนวนเข้าชม, การยกเลิกลิงก์ และบันทึกประวัติการเข้าถึง โดยแพทย์จะเข้าชมผ่านหน้าเว็บสาธารณะ (/s/:token)
+- **ระบบแจ้งเตือน (Alerts): แจ้งเตือนภายในแอปเมื่อมีคนเปิดดูบัตรฉุกเฉิน ลิงก์ที่แชร์ หรือเมื่อลิงก์ถูกยกเลิก พร้อมส่งอีเมลไปยังบัญชีของเจ้าของ หากมีการตั้งค่าคีย์ Resend ไว้ (โดยระบบส่งอีเมลจะไม่ขัดจังหวะการทำงานของหน้ากู้ชีพ)
+- **ความเป็นส่วนตัว (Privacy): มีหน้าจอขอความยินยอมตาม พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล (PDPA) ที่ระบุวัตถุประสงค์และรายชื่อผู้ให้บริการ AI อย่างชัดเจน ผู้ใช้สามารถถอนความยินยอม (ซึ่งจะยกเลิกลิงก์ทั้งหมด) หรือลบบัญชีผู้ใช้ (ลบข้อมูลถาวร + ลบไฟล์ในคลัง + บันทึกการลบ) ได้ตลอดเวลา
+- **ความปลอดภัย (Security): ใช้ระบบยืนยันตัวตน JWT Access/Refresh Token พร้อมการหมุนเวียนคีย์และตรวจจับการใช้ซ้ำ (Single-flight refresh ฝั่ง Client), เข้ารหัสข้อมูลสุขภาพทุกคอลัมน์ด้วย AES-256-GCM, รองรับการตั้งรหัส PIN เข้าแอป รวมถึงการปลดล็อกด้วยสแกนนิ้ว/ใบหน้า และมีระบบป้องกันการเข้าถึงเส้นทาง (Route guard)
+- **รองรับ 2 ภาษา (Bilingual UI): สลับใช้งานได้ทั้งภาษาไทยและภาษาอังกฤษในเมนู "เพิ่มเติม" (More) พร้อมรองรับการแสดงวันที่แบบ พ.ศ. เมื่อใช้งานภาษาไทย
+  
 ## Advanced features (rubric: ≥5 from ≥3 categories, ≥2 genuine integrations)
 
 | # | Feature | Category | Genuine integration | Code |
