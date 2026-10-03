@@ -164,6 +164,24 @@ Taken on a Samsung phone (Android 13) and a Redmi (Android 14). All are in [docs
 ## Limitations
 Lock-screen card is a permanent notification; how much of it shows on the lock screen depends on the phone's notification privacy setting, and Android 14+ lets the user swipe it away while unlocked (it comes straight back). The Android 16 lock-screen widget hub is not targeted. iOS designed but not built. AI is assistive; the shipped provider is a deterministic mock until Gemini/Typhoon keys are added, and Thai handwriting is unverified; document images would go to Google Gemini and SCB 10X Typhoon (free tiers that may use inputs), so the demo uses synthetic documents only. Alert e-mail needs a Resend key; on Resend's free tier without a verified domain it can only reach the account owner's own address (`ALERT_EMAIL_TO`), so per-user delivery needs a domain. Single server encryption key; PIN lock-out signs the user out after 5 failures; not PDPA-audited; no guardian consent for minors; not connected to Mor Prom / Health Link; no offline cache; free-tier server sleeps. Cloud deployment (Supabase + Render) is scripted but not yet provisioned.
 
+การแจ้งเตือนบนหน้าจอล็อก: การ์ดบนหน้าจอล็อกเป็นการแจ้งเตือนแบบถาวร โดยปริมาณข้อมูลที่จะแสดงบนหน้าจอล็อกขึ้นอยู่กับการตั้งค่าความเป็นส่วนตัวของการแจ้งเตือนในโทรศัพท์ และใน Android 14 ขึ้นไป ผู้ใช้สามารถปัดการแจ้งเตือนออกได้ขณะที่โทรศัพท์ปลดล็อกอยู่ แต่การแจ้งเตือนจะกลับมาแสดงอีกครั้งทันที
+ระบบ Lock-screen widget hub ของ Android 16 ยังไม่ได้ถูกนำมาใช้
+iOS: มีการออกแบบสำหรับ iOS ไว้แล้ว แต่ยังไม่ได้พัฒนาหรือสร้างขึ้นจริง
+AI: AI ถูกใช้เป็นตัวช่วยในการทำงาน โดยเวอร์ชันที่นำมาใช้งานในปัจจุบันเป็นเพียง ระบบจำลอง (mock) ที่ให้ผลลัพธ์แบบกำหนดแน่นอน (deterministic) จนกว่าจะมีการเพิ่ม API Key ของ Gemini/Typhoon
+ความสามารถในการอ่าน ลายมือภาษาไทย ยังไม่ได้รับการตรวจสอบยืนยัน
+ข้อมูลรูปภาพของเอกสาร: หากใช้เอกสารจริง รูปภาพของเอกสารจะถูกส่งไปยัง Google Gemini และ SCB 10X Typhoon ซึ่งเป็นบริการที่มี Free Tier และอาจมีการนำข้อมูลที่ส่งเข้าไปใช้ตามเงื่อนไขของบริการ ดังนั้น ในการสาธิตระบบจึงใช้ เอกสารจำลอง (synthetic documents) เท่านั้น
+การแจ้งเตือนทางอีเมล: ต้องใช้ Resend API Key และหากใช้ Resend Free Tier โดยยังไม่มี Domain ที่ผ่านการยืนยัน ระบบจะส่งอีเมลไปยังอีเมลของเจ้าของบัญชีเอง (ALERT_EMAIL_TO) เท่านั้น หากต้องการให้สามารถส่งแจ้งเตือนไปยังผู้ใช้แต่ละคนได้ จำเป็นต้องมี Domain ที่ผ่านการยืนยัน
+การเข้ารหัสข้อมูล: ระบบใช้ Encryption Key เพียงหนึ่งชุดสำหรับทั้งเซิร์ฟเวอร์
+การล็อกบัญชีด้วย PIN: หากกรอก PIN ผิด 5 ครั้ง ระบบจะทำการ ออกจากระบบ (Sign out) ของผู้ใช้
+PDPA: ระบบยังไม่ได้ผ่านการตรวจสอบหรือรับรองด้าน PDPA อย่างเป็นทางการ
+ผู้ใช้อายุต่ำกว่า 18 ปี: ระบบยังไม่มีขั้นตอนสำหรับการขอ ความยินยอมจากผู้ปกครอง
+การเชื่อมต่อระบบสุขภาพ: ระบบยังไม่ได้เชื่อมต่อกับ Mor Prom (หมอพร้อม) หรือ Health Link
+การใช้งานแบบออฟไลน์: ระบบยังไม่มีการเก็บข้อมูลแบบ Offline Cache ดังนั้นจึงไม่สามารถใช้งานฟังก์ชันดังกล่าวได้เมื่อไม่มีอินเทอร์เน็ต
+Free Tier Server: เซิร์ฟเวอร์ที่ใช้ Free Tier อาจเข้าสู่สถานะ หยุดทำงานชั่วคราว (sleep) เมื่อไม่มีการใช้งาน ทำให้การตอบสนองครั้งแรกหลังจากไม่มีการใช้งานอาจล่าช้า
+การ Deploy ขึ้น Cloud: ขั้นตอนการ Deploy ระบบขึ้น Cloud ด้วย Supabase + Render มีการเขียน Script เตรียมไว้แล้ว แต่ ยังไม่ได้ดำเนินการสร้างและตั้งค่าระบบจริง (provisioning)
+
+
+
 ## Future development directions
 Verifying the Gemini + Typhoon extraction and Supabase Storage adapters against the real free tiers (wired and tested offline; no keys provisioned yet), Render deploy, iOS WidgetKit, edge-detecting scanner, vaccination module, offline cache, push notifications, FHIR export to hospitals, NFC card.
 
