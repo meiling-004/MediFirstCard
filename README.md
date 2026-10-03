@@ -200,3 +200,7 @@ Deploy ระบบด้วย Render เพื่อให้ระบบส�
 
 ## A statement on responsible use
 MediFirstCard is a student educational prototype, not a medical device, and must not be used for diagnosis or treatment. Health data is sensitive personal data under the Thai PDPA: the app asks for explicit consent, states the purposes, names the AI providers, and lets the user withdraw consent and delete all data. Anything shown on the lock screen is readable by anyone holding the phone, so the user chooses each field and is warned before enabling it. Medical staff must confirm blood group, allergies and medications by standard procedures.
+
+> ภาษาไทย:
+MediFirstCard เป็นเพียงแอปพลิเคชันต้นแบบเพื่อการศึกษาของนักเรียน ไม่ใช่อุปกรณ์ทางการแพทย์ และต้องไม่นำไปใช้ในการวินิจฉัยหรือรักษาโรค ข้อมูลสุขภาพถือเป็นข้อมูลส่วนบุคคลที่มีความอ่อนไหวตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล (PDPA) ของไทย โดยแอปจะขอความยินยอมอย่างชัดแจ้ง ระบุวัตถุประสงค์ แจ้งรายชื่อผู้ให้บริการ AI รวมถึงยินยอมให้ผู้ใช้สามารถถอนความยินยอมและลบข้อมูลทั้งหมดได้
+ข้อมูลใดก็ตามที่แสดงบนหน้าจอล็อก (Lock Screen) บุคคลอื่นที่ถือโทรศัพท์จะสามารถอ่านได้ทั้งหมด ดังนั้นผู้ใช้จึงเป็นผู้เลือกข้อมูลในแต่ละส่วนด้วยตนเองและจะได้รับคำเตือนก่อนเปิดใช้งาน ทั้งนี้ เจ้าหน้าที่ทางการแพทย์จะต้องตรวจสอบกรุ๊ปเลือด ประวัติการแพ้ และยาที่ใช้ตามขั้นตอนมาตรฐานเสมอ
